@@ -1,0 +1,46 @@
+/* Reset de margens e preenchimentos padrão */
+body,
+h1,
+p,
+a {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para o corpo da página */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #ff6b6b, #556270);
+    background-size: cover;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* Estilos para o título */
+h1 {
+    color: #007bff;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para os links */
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px;
+    border: 2px solid #007bff;
+    border-radius: 4px;
+    margin: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Estilos para hover dos links */
+a:hover {
+    background-color: #007bff;
+    color: #fff;
+}

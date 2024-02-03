@@ -1,0 +1,93 @@
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #ff6b6b, #556270);
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* background-color: #f5f5f5; */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    /* Alteração para layout em coluna */
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#container {
+    border: 2px solid #8c03a1;
+    background-color: rgba(49, 49, 49, 0.504);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+    /* Espaço entre o container e o botão voltar */
+}
+
+#resultadoImposto {
+    font-size: 20px;
+    margin-top: 20px;
+    color: #000000;
+}
+
+.rendaInput {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.calcularButton {
+    background-color: #8c03a1;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.removerRendaButton {
+    background-color: #b4217c;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.limparCamposButton {
+    background-color: #6c757d;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Estilos para o botão "voltar" */
+a {
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Estilos para hover do botão "voltar" */
+a:hover {
+    background-color: #0056b3;
+}

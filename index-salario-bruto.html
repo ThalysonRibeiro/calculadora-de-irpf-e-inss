@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Desconto IRPF</title>
+    <link rel="stylesheet" href="_css/style-salario-bruto.css" />
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="calculadora-container">
+        <h2>Calculadora de Desconto IRPF</h2>
+        <label for="salario">Insira o valor do salário:</label>
+        <input type="text" id="salario" name="salario" onkeyup="formatarMoeda()" min="0">
+        <button onclick="calcular()">Calcular Salário</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script src="js/script-calculo-salario-bruto.js"></script>
+
+    <a href="index.html">voltar</a><br><br>
+
+</body>
+
+</html>
