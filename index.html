@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Desconto IRPF</title>
+    <link rel="stylesheet" href="_css/style.css" />
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="calculadora-container">
+        <h2>Calculadora de Desconto IRPF</h2>
+        <label for="salario">Insira o valor do salário:</label>
+        <input type="text" id="salario" name="salario" onkeyup="formatarMoeda()" min="0">
+        <button onclick="calcular()">Calcular Salário</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script src="js/script.js">
+        // Seu JavaScript aqui  
+    </script>
+</body>
+
+</html>
