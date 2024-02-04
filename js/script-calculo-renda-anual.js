@@ -1,75 +1,95 @@
-function formatarMoeda(valor) {
-    return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-}
+function formatarValor() {
+    const camposRendimento = document.querySelectorAll('.campo-rendimento');
 
-function atualizarFormatoMoeda(input) {
-    const valorSemFormato = parseFloat(input.value.replace(/\D/g, '')) / 100;
-    input.value = formatarMoeda(valorSemFormato);
-}
+    camposRendimento.forEach(input => {
+        let valorDigitado = input.value.replace(/[^\d]/g, '');
 
-function adicionarRenda() {
-    const rendasContainer = document.getElementById('rendasContainer');
-    const novaRendaContainer = document.createElement('div');
-    novaRendaContainer.classList.add('rendaInputContainer');
+        valorDigitado = valorDigitado.replace(/^0+/, '');
 
-    novaRendaContainer.innerHTML = `
-        <label for="rendaAdicional">Digite sua renda adicional:</label>
-        <input type="text" class="rendaInput" name="rendaAdicional[]"
-            oninput="atualizarFormatoMoeda(this)" required>
-        <button type="button" class="removerRendaButton"
-            onclick="removerRenda(this)">Remover</button>
-    `;
-
-    rendasContainer.appendChild(novaRendaContainer);
-}
-
-function removerRenda(button) {
-    const rendaContainer = button.parentNode;
-    const rendasContainer = document.getElementById('rendasContainer');
-    rendasContainer.removeChild(rendaContainer);
-}
-
-function limparCampos() {
-    const inputs = document.getElementsByClassName('rendaInput');
-    for (let input of inputs) {
-        input.value = '';
-    }
-
-    // Limpar o resultado
-    document.getElementById('resultadoImposto').innerHTML = '';
+        if (valorDigitado === '') {
+            input.value = '';
+        } else {
+            const valorFormatado = parseFloat(valorDigitado) / 100;
+            input.value = valorFormatado.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2, style: 'currency', currency: 'BRL' });
+        }
+    });
 }
 
 function calcularImposto() {
-    const rendas = document.getElementsByName('rendaAdicional[]');
-    const deducaoSimplificada20Porcento = Array.from(rendas)
-        .map(renda => parseFloat(renda.value.replace(/\D/g, '')) / 100)
-        .reduce((total, renda) => total + renda, 0) * 0.80;
+    const camposRendimento = document.querySelectorAll('.campo-rendimento');
 
-    let aliquota = 0;
-    let deducao = 0;
+    const rendimento = Array.from(camposRendimento).map(input => parseFloat(input.value.replace(/[^\d]/g, '')));
 
-    if (deducaoSimplificada20Porcento <= 24511.92) {
-        aliquota = 0;
-        deducao = 0;
-    } else if (deducaoSimplificada20Porcento <= 33919.80) {
-        aliquota = 0.075;
-        deducao = 1838.39;
-    } else if (deducaoSimplificada20Porcento <= 45012.60) {
-        aliquota = 0.15;
-        deducao = 4382.38;
-    } else if (deducaoSimplificada20Porcento <= 55976.16) {
-        aliquota = 0.225;
-        deducao = 7758.32;
+    const deducaoSimplificada20Porcento = rendimento.reduce((acc, val) => acc + val, 0) * 0.20;
+    let resultadoDe_DeducaoSimplificada20Porcento = 0;
+    if (deducaoSimplificada20Porcento < 1675434) {
+        resultadoDe_DeducaoSimplificada20Porcento = rendimento.reduce((acc, val) => acc + val, 0) * 0.80;
     } else {
-        aliquota = 0.275;
-        deducao = 10557.13;
+        resultadoDe_DeducaoSimplificada20Porcento = rendimento.reduce((acc, val) => acc + val, 0) - 1675434;
     }
 
-    const impostoDevido = (deducaoSimplificada20Porcento * aliquota) - deducao;
-    const resultadoImposto = impostoDevido <= 0 ?
-        "Você está isento de imposto." :
-        "Imposto a pagar: " + formatarMoeda(impostoDevido);
+    const baseDeCalculo = rendimento.reduce((acc, val) => acc + val, 0) - resultadoDe_DeducaoSimplificada20Porcento;
 
-    // Exibir o resultado na página
-    document.getElementById('resultadoImposto').innerHTML = resultadoImposto;
+
+    const calculadoraDeIrpf = {
+        calcularImposto: function (deducaoSimplificada) {
+            let aliquota = 0;
+            let deducao = 0;
+
+            if (deducaoSimplificada <= 2451192) {
+                aliquota = 0;
+                deducao = 0;
+            } else if (deducaoSimplificada <= 3391980) {
+                aliquota = 0.075;
+                deducao = 183839;
+            } else if (deducaoSimplificada <= 4501260) {
+                aliquota = 0.15;
+                deducao = 438238;
+            } else if (deducaoSimplificada <= 5597616) {
+                aliquota = 0.225;
+                deducao = 775832;
+            } else {
+                aliquota = 0.275;
+                deducao = 1055713;
+            }
+
+            const aliquotaDe15Porcento = deducaoSimplificada * aliquota;
+            const parcelaADeduzir15Porcento = aliquotaDe15Porcento - deducao;
+
+            const impostoDevido = parcelaADeduzir15Porcento / 100;
+            const irEfetivoSobreRendimento = (impostoDevido / baseDeCalculo) * 100;
+
+            document.getElementById('resultado').innerHTML = "<strong>Rendimentos tributáveis brutos:</strong> " + (rendimento.reduce((acc, val) => acc + val, 0) / 100).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2, style: 'currency', currency: 'BRL' }) +
+                "<br><strong>Desconto simplificado:</strong> " + (deducaoSimplificada / 100).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2, style: 'currency', currency: 'BRL' }) +
+                "<br><strong>Base de cálculo:</strong> " + (baseDeCalculo / 100).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2, style: 'currency', currency: 'BRL' }) +
+                "<br><strong>Imposto a pagar:</strong> " + impostoDevido.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2, style: 'currency', currency: 'BRL' });
+        }
+    }
+
+    calculadoraDeIrpf.calcularImposto(resultadoDe_DeducaoSimplificada20Porcento);
+}
+
+function adicionarCampo() {
+    const camposRendimento = document.getElementById('campos-rendimento');
+    const novoCampo = document.createElement('div');
+    novoCampo.innerHTML = `
+        <label for="valorRendimento">Informe o valor do rendimento:</label>
+        <input type="text" class="campo-rendimento" placeholder="Digite o valor" oninput="formatarValor()">
+    `;
+    camposRendimento.appendChild(novoCampo);
+}
+
+function removerCampo() {
+    const camposRendimento = document.getElementById('campos-rendimento');
+    if (camposRendimento.childElementCount > 1) {
+        camposRendimento.lastChild.remove();
+    }
+}
+
+function limparDados() {
+    const camposRendimento = document.querySelectorAll('.campo-rendimento');
+    camposRendimento.forEach(input => {
+        input.value = '';
+    });
+    document.getElementById('resultado').innerHTML = '';
 }

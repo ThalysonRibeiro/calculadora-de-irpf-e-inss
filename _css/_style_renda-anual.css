@@ -1,93 +1,124 @@
-html {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #ff6b6b, #556270);
-    background-size: cover;
-    background-position: center;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* background-color: #f5f5f5; */
+    background: linear-gradient(to right, #512c6c, #301a4b);
     margin: 0;
     display: flex;
-    flex-direction: column;
-    /* Alteração para layout em coluna */
     align-items: center;
     justify-content: center;
     height: 100vh;
+    color: #fff;
 }
 
 #container {
-    border: 2px solid #8c03a1;
-    background-color: rgba(49, 49, 49, 0.504);
+    background: linear-gradient(to right, #301a4b, #512c6c);
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #9b59b6;
+}
+
+input {
+    padding: 12px;
     margin-bottom: 20px;
-    /* Espaço entre o container e o botão voltar */
+    border: 2px solid #9c59b600;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ecf0f1;
+    color: #333;
 }
 
-#resultadoImposto {
-    font-size: 20px;
+.button-container {
+    display: block;
+    flex-direction: column;
+    /* Mudança para coluna para empilhar os botões verticalmente */
+    margin-bottom: 20px;
+
+}
+
+button {
+    flex: 1;
+    padding: 12px;
+    background-color: #8c03a1;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    /* Adicionado espaço entre os botões */
+    box-sizing: border-box;
+    transition: background 0.3s ease;
+}
+
+button:last-child {
+    margin-bottom: 0;
+    /* Removido espaço inferior para o último botão */
+}
+
+button:hover {
+    background-color: #b4217c;
+}
+
+#resultado {
     margin-top: 20px;
-    color: #000000;
+    padding: 20px;
+    border: 2px solid #00000000;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #fff;
+    color: #333;
 }
 
-.rendaInput {
-    padding: 10px;
-    font-size: 16px;
+#resultado strong {
+    font-weight: bold;
+    color: #282828;
+}
+
+.campo-rendimento {
     margin-bottom: 10px;
 }
 
-.calcularButton {
-    background-color: #8c03a1;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
+@media (max-width: 600px) {
+    #container {
+        padding: 15px;
+    }
+
+    #resultado {
+        padding: 15px;
+    }
 }
 
-.removerRendaButton {
-    background-color: #b4217c;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
-.limparCamposButton {
-    background-color: #6c757d;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-/* Estilos para o botão "voltar" */
-a {
+/* a {
     text-decoration: none;
     background-color: #007bff;
     color: #fff;
     padding: 10px 20px;
     border-radius: 4px;
     transition: background-color 0.3s ease-in-out;
+
+} */
+
+.button-link {
+    display: inline-block;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
 }
 
-/* Estilos para hover do botão "voltar" */
 a:hover {
     background-color: #0056b3;
 }

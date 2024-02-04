@@ -1,114 +1,127 @@
 
-// rendimento:R$ 45.000,00
-// 20 % dedução simplificada 20 % da renda:R$ 9.000,00
-// base de calculo:R$36.000,00
-// aliquota: 15 %
-// imposto inicial:R$ 5.400,00
-// parcela a deduzir:R$ 4.382, 38
-// imposto a pagar:R$ 1.017, 62
-// imposto a restituir:R$ 0,00
+rendimento:R$ 45.000,00
+20 % dedução simplificada 20 % da renda:R$ 9.000,00
+base de calculo:R$36.000,00
+aliquota: 15 %
+imposto inicial:R$ 5.400,00
+parcela a deduzir:R$ 4.382, 38
+imposto a pagar:R$ 1.017, 62
+imposto a restituir:R$ 0,00
 
 
 
-// Base de Cálculo(R$)	Alíquota(%)	Dedução do IR(R$)
-// Até R$ 24.511, 92 - -
-// De R$ 24.511, 93 até R$ 33.919, 80	7, 5 % R$ 1.838, 39
-// De R$ 33.919, 81 até R$ 45.012, 60	15 % R$ 4.382, 38
-// De R$ 45.012, 61 até R$ 55.976, 16	22, 5 % R$ 7.758, 32
-// Acima de 55.976, 16	27, 5 % R$ 10.557, 13
+Base de Cálculo(R$)	Alíquota(%)	Dedução do IR(R$)
+Até R$ 24.511, 92 - -
+De R$ 24.511, 93 até R$ 33.919, 80	7, 5 % R$ 1.838, 39
+De R$ 33.919, 81 até R$ 45.012, 60	15 % R$ 4.382, 38
+De R$ 45.012, 61 até R$ 55.976, 16	22, 5 % R$ 7.758, 32
+Acima de 55.976, 16	27, 5 % R$ 10.557, 13
 
 
-// const rendimento = 4500000;
-// const deducaoSimplificada20Porcento = rendimento * 0.80;
-// const aliquotaDe15Porcento = deducaoSimplificada20Porcento * 0.15;
-// const parcelaADeduzir15Porcento = 438238;
-// console.log("imposto a pagar: R$", (aliquotaDe15Porcento - parcelaADeduzir15Porcento) / 100);
+rendimento:R$ 40.000,00
+20 % dedução simplificada 20 % da renda:R$ 8.000,00
+base de calculo:R$32.000,00
+aliquota: 7, 5 %
+imposto inicial:R$ 2.400,00
+parcela a deduzir:R$ 1.713, 8
+imposto a pagar:R$ 686, 42
+imposto a restituir:R$ 0,00
+
+rendimento:R$ 106.000,00
+20 % dedução simplificada 20 % da renda só é valida até 16.754, 34:R$ 16.754, 34
+base de calculo: R$ 89.245, 66
+alíquota:R$ 27, 5 %
+imposto inicial antes de aplicar a parcela dedutuva: 24.4543, 55
+parcela dedutivel:R$ 10.432, 32
+imposto a pagar:R$ 14.110, 23
+imposto a restituir:R$ 0,00
 
 
 
 
 
-// {
-//     const rendimento = 4000000;
-//     const deducaoSimplificada20Porcento = rendimento * 0.80;
+
+{
+    const rendimento = 4000000;
+    const deducaoSimplificada20Porcento = rendimento * 0.80;
 
 
-//     let aliquota = 0;
-//     let deducao = 0;
-//     if (deducaoSimplificada20Porcento <= 2451192) {
-//         aliquota = 0;
-//         deducao = 0;
-//         const aliquotaDe15Porcento = deducaoSimplificada20Porcento * aliquota;
-//         const parcelaADeduzir15Porcento = aliquotaDe15Porcento - deducao;
-//         console.log("inzento de imposto", parcelaADeduzir15Porcento / 100);
-//     } else if (deducaoSimplificada20Porcento <= 3391980) {
-//         aliquota = 0.075;
-//         deducao = 183839;
-//         const aliquotaDe15Porcento = deducaoSimplificada20Porcento * aliquota;
-//         const parcelaADeduzir15Porcento = aliquotaDe15Porcento - deducao;
-//         console.log("inzento de imposto", parcelaADeduzir15Porcento / 100);
+    let aliquota = 0;
+    let deducao = 0;
+    if (deducaoSimplificada20Porcento <= 2451192) {
+        aliquota = 0;
+        deducao = 0;
+        const aliquotaDe15Porcento = deducaoSimplificada20Porcento * aliquota;
+        const parcelaADeduzir15Porcento = aliquotaDe15Porcento - deducao;
+        console.log("inzento de imposto", parcelaADeduzir15Porcento / 100);
+    } else if (deducaoSimplificada20Porcento <= 3391980) {
+        aliquota = 0.075;
+        deducao = 183839;
+        const aliquotaDe15Porcento = deducaoSimplificada20Porcento * aliquota;
+        const parcelaADeduzir15Porcento = aliquotaDe15Porcento - deducao;
+        console.log("inzento de imposto", parcelaADeduzir15Porcento / 100);
 
 
-//     } else if (deducaoSimplificada20Porcento <= 4501260) {
-//         aliquota = 0.15;
-//         deducao = 438238;
-//         const aliquotaDe15Porcento = deducaoSimplificada20Porcento * aliquota;
-//         const parcelaADeduzir15Porcento = aliquotaDe15Porcento - deducao;
-//         console.log("inzento de imposto", parcelaADeduzir15Porcento / 100);
+    } else if (deducaoSimplificada20Porcento <= 4501260) {
+        aliquota = 0.15;
+        deducao = 438238;
+        const aliquotaDe15Porcento = deducaoSimplificada20Porcento * aliquota;
+        const parcelaADeduzir15Porcento = aliquotaDe15Porcento - deducao;
+        console.log("inzento de imposto", parcelaADeduzir15Porcento / 100);
 
-//     } else if (deducaoSimplificada20Porcento <= 5597616) {
-//         aliquota = 0.225;
-//         deducao = 775832;
-//         const aliquotaDe15Porcento = deducaoSimplificada20Porcento * aliquota;
-//         const parcelaADeduzir15Porcento = aliquotaDe15Porcento - deducao;
-//         console.log("inzento de imposto", parcelaADeduzir15Porcento / 100);
-
-
-//     } else {
-//         aliquota = 0.275;
-//         deducao = 1055713;
-//         const aliquotaDe15Porcento = deducaoSimplificada20Porcento * aliquota;
-//         const parcelaADeduzir15Porcento = aliquotaDe15Porcento - deducao;
-//         console.log("inzento de imposto", parcelaADeduzir15Porcento / 100);
+    } else if (deducaoSimplificada20Porcento <= 5597616) {
+        aliquota = 0.225;
+        deducao = 775832;
+        const aliquotaDe15Porcento = deducaoSimplificada20Porcento * aliquota;
+        const parcelaADeduzir15Porcento = aliquotaDe15Porcento - deducao;
+        console.log("inzento de imposto", parcelaADeduzir15Porcento / 100);
 
 
-//     }
-// }
+    } else {
+        aliquota = 0.275;
+        deducao = 1055713;
+        const aliquotaDe15Porcento = deducaoSimplificada20Porcento * aliquota;
+        const parcelaADeduzir15Porcento = aliquotaDe15Porcento - deducao;
+        console.log("inzento de imposto", parcelaADeduzir15Porcento / 100);
 
-// const rendimento = {
-//     rendaAdicional01: 1500000,
-//     rendaAdicional02: 3000000
-// };
 
-// const deducaoSimplificada20Porcento = (rendimento.rendaAdicional01 + rendimento.rendaAdicional02) * 0.80;
+    }
+}
 
-// const calculadoraDeIrpf = {
-//     calcularImposto: function (deducaoSimplificada) {
-//         let aliquota = 0;
-//         let deducao = 0;
+const rendimento = {
+    rendaAdicional01: 1500000,
+    rendaAdicional02: 3000000
+};
 
-//         if (deducaoSimplificada <= 2451192) {
-//             aliquota = 0;
-//             deducao = 0;
-//         } else if (deducaoSimplificada <= 3391980) {
-//             aliquota = 0.075;
-//             deducao = 183839;
-//         } else if (deducaoSimplificada <= 4501260) {
-//             aliquota = 0.15;
-//             deducao = 438238;
-//         } else if (deducaoSimplificada <= 5597616) {
-//             aliquota = 0.225;
-//             deducao = 775832;
-//         } else {
-//             aliquota = 0.275;
-//             deducao = 1055713;
-//         }
+const deducaoSimplificada20Porcento = (rendimento.rendaAdicional01 + rendimento.rendaAdicional02) * 0.80;
 
-//         const aliquotaDe15Porcento = deducaoSimplificada * aliquota;
-//         const parcelaADeduzir15Porcento = aliquotaDe15Porcento - deducao;
+const calculadoraDeIrpf = {
+    calcularImposto: function (deducaoSimplificada) {
+        let aliquota = 0;
+        let deducao = 0;
 
-//         console.log("Imposto a pagar: R$ " + (parcelaADeduzir15Porcento / 100).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2, style: 'currency', currency: 'BRL' }));
-//     }
-// }
+        if (deducaoSimplificada <= 2451192) {
+            aliquota = 0;
+            deducao = 0;
+        } else if (deducaoSimplificada <= 3391980) {
+            aliquota = 0.075;
+            deducao = 183839;
+        } else if (deducaoSimplificada <= 4501260) {
+            aliquota = 0.15;
+            deducao = 438238;
+        } else if (deducaoSimplificada <= 5597616) {
+            aliquota = 0.225;
+            deducao = 775832;
+        } else {
+            aliquota = 0.275;
+            deducao = 1055713;
+        }
+
+        const aliquotaDe15Porcento = deducaoSimplificada * aliquota;
+        const parcelaADeduzir15Porcento = aliquotaDe15Porcento - deducao;
+
+        console.log("Imposto a pagar: R$ " + (parcelaADeduzir15Porcento / 100).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2, style: 'currency', currency: 'BRL' }));
+    }
+}
 
 // calculadoraDeIrpf.calcularImposto(deducaoSimplificada20Porcento);

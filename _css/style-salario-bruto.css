@@ -1,6 +1,6 @@
 html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #ff6b6b, #556270);
+    background: linear-gradient(to right, #512c6c, #301a4b);
     background-size: cover;
     background-position: center;
     margin: 0;
@@ -24,11 +24,11 @@ body {
 }
 
 #calculadora-container {
-    border: 2px solid #8c03a1;
-    border-radius: 10px;
-    padding: 25px;
-    background-color: rgba(49, 49, 49, 0.504);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #00000000;
+    border-radius: 12px;
+    padding: 20px;
+    background: linear-gradient(to right, #301a4b, #512c6c);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease-in-out;
     /* Adiciona uma transição suave */
 }
@@ -93,8 +93,9 @@ a {
     text-decoration: none;
     background-color: #007bff;
     color: #fff;
+    border: none;
     padding: 10px 20px;
-    border-radius: 4px;
+    border-radius: 100px;
     transition: background-color 0.3s ease-in-out;
 }
 
