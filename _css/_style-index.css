@@ -1,61 +1,94 @@
-/* Reset de margens e preenchimentos padrão */
-body,
-h1,
-p,
-a {
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Certifica-se de que a largura e altura incluem preenchimento e borda */
+    background: linear-gradient(to left, #ffffff, #ffffff);
+    color: #333;
+
 }
 
-/* Estilos para o corpo da página */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #6a0572, #ab83a1);
-    background-size: cover;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    /* Alterei para 'min-height' para garantir que o conteúdo esteja centralizado mesmo se for menor que 100vh */
-    flex-direction: column;
-}
-
-/* Estilos para o título */
-h1 {
-    color: #ffffff;
-    font-size: 32px;
-    margin-bottom: 20px;
-    text-shadow: 0 0 12px rgba(0, 0, 0, 0.605);
-}
-
-/* Estilos para os links */
-a {
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 20px;
-    padding: 12px;
-    border: 2px solid #ffffff;
-    border-radius: 8px;
-    margin: 10px;
-    display: inline-block;
-    /* Alterei para 'inline-block' para evitar que os links ocupem a largura total */
-    transition: background-color 0.3s ease-in-out;
-}
-
-/* Estilos para hover dos links */
-a:hover {
-    background-color: #242424;
+.topo {
+    background: linear-gradient(to right, #512c6c, #301a4b);
+    /* Azul claro para o topo */
     color: #fff;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 999;
+    transition: background-color 0.3s ease;
+}
+
+/* .topo:hover {
+     background-color: #7b2525; animação do topo
+     Azul mais escuro no hover 
+} */
+
+main {
+    padding: 120px 20px 20px;
 }
 
 #container {
-    background: linear-gradient(to right, #301a4b, #512c6c);
-    border-radius: 12px;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
-    padding: 50px;
-    /* Reduzi um pouco o preenchimento para ajustar o espaçamento */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    transition: box-shadow 0.3s ease;
+}
+
+#container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    color: #ffffff;
+    /* Azul claro para o título */
+    margin-bottom: 20px;
+}
+
+#container p {
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+#container a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #975ea0;
+    /* Azul claro para os links */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#container a:hover {
+    background-color: #0056b3;
+    /* Azul mais escuro no hover para os links */
+}
+
+footer {
+    background-color: #2e2e2e;
+    /* Azul claro para o rodapé */
+    color: #fff;
     text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
