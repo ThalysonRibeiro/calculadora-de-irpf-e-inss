@@ -1,17 +1,17 @@
 const calculadoraDeDescontoIrpfMes = {
-    salarioDoMesParaCalculo: 2500.00,
+    salarioDoMesParaCalculo: 0,
     faixasINSS: [
-        { limite: 1320.00, aliquota: 7.5 },
-        { limite: 2571.29, aliquota: 9 },
-        { limite: 3856.94, aliquota: 12 },
+        { limite: 1412.00, aliquota: 7.5 },
+        { limite: 2666.68, aliquota: 9 },
+        { limite: 4000.03, aliquota: 12 },
         { limite: Infinity, aliquota: 14 }
     ],
     faixasIRPF: [
-        { limite: 2112.00, aliquota: 0, deducao: 0 },
-        { limite: 2826.65, aliquota: 7.5, deducao: 158.40 },
-        { limite: 3751.05, aliquota: 15, deducao: 370.40 },
-        { limite: 4664.67, aliquota: 22.5, deducao: 651.73 },
-        { limite: Infinity, aliquota: 27.5, deducao: 884.96 }
+        { limite: 2259.20, aliquota: 0, deducao: 0 },
+        { limite: 2826.65, aliquota: 7.5, deducao: 169.44 },
+        { limite: 3751.05, aliquota: 15, deducao: 381.44 },
+        { limite: 4664.68, aliquota: 22.5, deducao: 662.77 },
+        { limite: Infinity, aliquota: 27.5, deducao: 896.00 }
     ],
 
     calcularDesconto: function (faixas) {

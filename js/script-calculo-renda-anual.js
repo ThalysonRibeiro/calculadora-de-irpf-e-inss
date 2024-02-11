@@ -36,21 +36,21 @@ function calcularImposto() {
             let aliquota = 0;
             let deducao = 0;
 
-            if (deducaoSimplificada <= 2451192) {
+            if (deducaoSimplificada <= 2711040) {
                 aliquota = 0;
                 deducao = 0;
             } else if (deducaoSimplificada <= 3391980) {
                 aliquota = 0.075;
-                deducao = 183839;
+                deducao = 203328;
             } else if (deducaoSimplificada <= 4501260) {
                 aliquota = 0.15;
-                deducao = 438238;
+                deducao = 457728;
             } else if (deducaoSimplificada <= 5597616) {
                 aliquota = 0.225;
-                deducao = 775832;
+                deducao = 795324;
             } else {
                 aliquota = 0.275;
-                deducao = 1055713;
+                deducao = 1075200;
             }
 
             const aliquotaDe15Porcento = deducaoSimplificada * aliquota;
